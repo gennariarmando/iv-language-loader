@@ -1,0 +1,6 @@
+[submodule "source/Utils"]
+	path = source/Utils
+	url = https://github.com/CookiePLMonster/ModUtils.git
+[submodule "source/inireader"]
+	path = source/inireader
+	url = https://github.com/ThirteenAG/IniReader

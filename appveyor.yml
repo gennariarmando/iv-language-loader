@@ -1,0 +1,25 @@
+version: 0.{build}
+skip_tags: true
+image: Visual Studio 2019
+configuration: Release
+install:
+- cmd: >-
+    git submodule update --init --recursive
+
+    premake5.bat
+build:
+  project: project_files/iv-language-loader.sln
+  parallel: true
+  verbosity: minimal
+
+after_build:
+- ps: >-    
+    cd "c:\projects\iv-language-loader\data\"
+    
+    mv IVLanguageLoader.ini c:\projects\iv-language-loader\output\asi\
+    
+    cd "c:\projects\iv-language-loader\output\asi\"
+                      
+    7z a iv-language-loader.zip IVLanguageLoader.asi IVLanguageLoader.ini
+
+    Get-ChildItem .\*.zip  | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
