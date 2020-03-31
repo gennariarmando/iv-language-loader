@@ -23,11 +23,11 @@ void Init() {
     currLangId = iniReader.ReadInteger("MAIN", "GameLanguageID", 0);
 
     void* getGameLanguage[] = {
-        get_pattern("E8 E2 EE 30 00"),
-        get_pattern("E8 0A A9 2E 00"),
-        get_pattern("E8 9E 73 FF FF"),
-        get_pattern("E8 9D E5 FF FF"),
-        get_pattern("E8 A1 1F FF FF"),
+        get_pattern("E8 ? ? 30 00 83 3D ? ? ? ? 00 8B 0D ? ? ? ? 89 0D ? ? ? ? A3"),
+        get_pattern("E8 ? ? 2E 00 ? ? 05 75 34 C7 44 ? ? ? ? 8F 3D 8B ? ? 10 89 44"),
+        get_pattern("E8 ? ? FF FF 80 3D ? C2 ? ? 00 A3 ? ? ? ? A3 ? ? ? ? C6 05 ? 0C"),
+        get_pattern("E8 ? ? FF FF 8B F8 ? ? ? ? 00 00 8B ? ? ? ? 03 00 80 3D ? C2"),
+        get_pattern("E8 ? ? FF FF EB 05 A1 ? ? ? ? 80 BE 63 02 00 00 00 C6 86 ? 02 00"),
     };
 
     for (void* pattern : getGameLanguage) {
