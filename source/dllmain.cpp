@@ -6,6 +6,8 @@
 #include "inireader/IniReader.h"
 
 int currLangId;
+int menuLang;
+int menuJap;
 const char* gameLanguages[] = { "english", "french", "german", "italian", "spanish", "russian", "japanese" };
 
 signed int GetUserLanguage() {
